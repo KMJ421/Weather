@@ -1,38 +1,69 @@
-.App {
+body{
+  background: url(https://png.pngtree.com/thumb_back/fh260/background/20220218/pngtree-clear-sky-blue-sky-bright-sky-clouds-image_965173.jpg);
+  height:100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  flex-direction: column;
+}
+
+.weather-box{
+  width: 50%;
+  border: 3px solid lightgray;
+  padding: 50px;
+  border-radius: 30px;
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.location-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.temperature {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff5656;
+  margin: 10px 0;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.weather-description {
+  font-size: 20px;
+  font-weight: 600;
+  color: hsl(232, 100%, 65%);
+  text-align: center;
+  margin-top: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.button-group .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-group .btn:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
 }
+
