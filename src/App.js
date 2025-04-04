@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBox from "./component/WeatherBox";
@@ -8,13 +8,13 @@ function App() {
 
   const [weather, setWeather] = useState(null);
 
-  const getCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position)=>{
+  const getCurrentLocation = useCallback(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       getWeatherByCurrentLocation(lat, lon);
     });
-  };
+  }, []);
 
   const getWeatherByCurrentLocation = async(lat, lon) => {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=0bbe61974a6329d0b9a5524334656229&units=metric`;
@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     getCurrentLocation()
-  }, [])
+  }, [getCurrentLocation])
 
   return (
     <div>
