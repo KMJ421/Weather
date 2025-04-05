@@ -28,23 +28,24 @@ function App() {
     setLoading(false)
   };
 
-  const getWeatherByCity = async() => {
+  const getWeatherByCity = useCallback(async () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0bbe61974a6329d0b9a5524334656229&units=metric`;
-    setLoading(true)
+    setLoading(true);
     let response = await fetch(url);
     let data = await response.json();
     setWeather(data);
     setLoading(false);
-  }
+  }, [city]);
+  
 
   useEffect(() => {
-    if(city==""){
+    if(city===""){
       getCurrentLocation()
     }
     else{
       getWeatherByCity();
     }
-  }, [city])
+  }, [city, getCurrentLocation, getWeatherByCity])
 
 
   return (
