@@ -8,7 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 function App() {
 
   const [weather, setWeather] = useState(null);
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("current");
   const [loading, setLoading] = useState(false);
   const cities=['taipei', 'bangkok', 'tokyo', 'seoul']
   const getCurrentLocation = useCallback(() => {
@@ -39,7 +39,7 @@ function App() {
   
 
   useEffect(() => {
-    if(city===""){
+    if(city==="current"){
       getCurrentLocation()
     }
     else{
@@ -51,7 +51,7 @@ function App() {
   return (
     <div>
       {loading?
-      (<div className="container"><ClipLoader color= '#ff8c6b' loading={loading} size={150} /></div>)
+      (<div className="container"><ClipLoader color= '#d0ddff' loading={loading} size={150} /></div>)
       :
       (<div className="container">
         <WeatherBox weather={weather}/>

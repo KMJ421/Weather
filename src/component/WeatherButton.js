@@ -7,7 +7,7 @@ const WeatherButton = ({cities, setCity, city}) => {
 
   return (
     <div className="button-group">
-      <Button variant="secondary" className={city === "" ? "active" : ""} onClick={() => setCity("")}>
+      <Button variant="secondary" className={city === "current" ? "active" : ""} onClick={() => setCity("current")}>
         Current Location
       </Button>
 
